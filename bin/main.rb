@@ -52,6 +52,7 @@ while game_start
   #   [2, 4, 6]
   # ]
 
+
 end
 
 # check if the move was already made
