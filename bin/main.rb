@@ -14,7 +14,7 @@ class Main
     puts 'Please enter player 2 name:'
     @user_two = gets.chomp
     puts '-------------------------------'
-    puts '#{@user_one} start'
+    puts "#{@user_one} start"
     puts 'Make your move(1-9):'
     @user_one_move = gets.chomp
     # make move on the board
