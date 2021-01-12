@@ -4,11 +4,13 @@ puts 'game started'
 puts '-------------------------------'
 puts 'Please enter player 1 name:'
 user_one = gets.chomp
+puts user_one
 puts '-------------------------------'
 puts 'Please enter player 2 name:'
 user_two = gets.chomp
+puts user_two
 puts '-------------------------------'
-puts "#{@user_one} start"
+puts '#Lets play'
 
 game_start = true
 rounds = 0
@@ -19,16 +21,16 @@ while game_start
   user_one_move = gets.chomp
   used_moves = []
   if used_moves.any?(user_one_move)
-    puts "Position already taken"
+    puts 'Position already taken'
   else
     used_moves.push(user_one_move)
   end
 
-  puts "   |   |   "
-  puts "--- --- ---"
-  puts "   |   |   "
-  puts "--- --- ---"
-  puts "   |   |   "
+  puts '   |   |   '
+  puts '--- --- ---'
+  puts '   |   |   '
+  puts '--- --- ---'
+  puts '   |   |   '
 
   # make move on the board
   # puts board
@@ -37,6 +39,7 @@ while game_start
   rounds += 1
 
   # if any player gets a winning combination, he wins the game otherwise its a tie. break the
+=begin
   win_combination = [
     [0, 1, 2],
     [3, 4, 5],
@@ -45,8 +48,9 @@ while game_start
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6],
+    [2, 4, 6]
   ]
+=end
 
 end
 
