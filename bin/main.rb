@@ -22,7 +22,7 @@ while game_start
   puts "#{user_one} Make your move(1-9):"
   user_move = gets.chomp.to_i
 
-  if(user_move.between?(1, 9))
+  if (user_move.between?(1, 9))
 
     if used_moves.any?(user_move)
       puts 'Position already taken'
@@ -36,14 +36,14 @@ while game_start
     puts '--- --- ---'
     puts '   |   |   '
   else
-    puts "invalid input"
+    puts 'invalid input'
     break
   end
 
   puts "#{user_two} Make your move(1-9):"
   user_move = gets.chomp.to_i
 
-  if(user_move.between?(1, 9))
+  if (user_move.between?(1, 9))
 
     if used_moves.any?(user_move)
       puts 'Position already taken'
@@ -57,10 +57,9 @@ while game_start
     puts '--- --- ---'
     puts '   |   |   '
   else
-    puts "invalid input"
+    puts 'invalid input'
     break
   end
-
 
   # make move on the board
   # puts board
