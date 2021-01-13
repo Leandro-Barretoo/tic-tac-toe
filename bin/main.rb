@@ -27,11 +27,11 @@ while restart
 
     if user_move.between? 1, 9
 
-      if used_moves.any?(user_move)
-        puts 'Position already taken'
-      else
-        used_moves.push(user_move)
-      end
+      #if used_moves.any?(user_move)
+        #puts 'Position already taken'
+      #else
+        #used_moves.push(user_move)
+      #end
 
       puts '   | x |   '
       puts '--- --- ---'
@@ -49,11 +49,11 @@ while restart
 
     if user_move.between? 1, 9
 
-      if used_moves.any?(user_move)
-        puts 'Position already taken'
-      else
-        used_moves.push(user_move)
-      end
+      #if used_moves.any?(user_move)
+        #puts 'Position already taken'
+      #else
+        #used_moves.push(user_move)
+      #end
 
       puts '   | x |   '
       puts '--- --- ---'
@@ -83,13 +83,11 @@ while restart
 
     # if any player gets a winning combination.
 
-    if won #if winnig move then true is assign to won and games ends
-      game_start = false
-    end
+    # if winnig move then true is assign to won and games ends
+    won ? game_start = false
 
-    if draw #if no winnig move then it triggers the draw variable to be true and the game ends
-      game_start = false
-    end
+    # if no winnig move then it triggers the draw variable to be true and the game ends
+    draw ? game_start = false
 
   end
   puts 'winner is -->'
