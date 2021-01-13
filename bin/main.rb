@@ -84,10 +84,10 @@ while restart
     # if any player gets a winning combination.
 
     # if winnig move then true is assign to won and games ends
-    won ? game_start = false
+    won == true ? game_start = false
 
     # if no winnig move then it triggers the draw variable to be true and the game ends
-    draw ? game_start = false
+    draw == true ? game_start = false
 
   end
   puts 'winner is -->'
