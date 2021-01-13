@@ -14,24 +14,24 @@ puts '#Lets play'
 
 game_start = true
 rounds = 0
-used_moves = []
+# used_moves = []
 restart = true
 
 while restart
   while game_start
     won = false
-    draw = false
+    # draw = false
     puts rounds
     puts "#{user_one} Make your move(1-9):"
     user_move = gets.chomp.to_i
 
     if user_move.between? 1, 9
 
-      #if used_moves.any?(user_move)
-        #puts 'Position already taken'
-      #else
-        #used_moves.push(user_move)
-      #end
+      # if used_moves.any?(user_move)
+      # puts 'Position already taken'
+      # else
+      # used_moves.push(user_move)
+      # end
 
       puts '   | x |   '
       puts '--- --- ---'
@@ -49,11 +49,11 @@ while restart
 
     if user_move.between? 1, 9
 
-      #if used_moves.any?(user_move)
-        #puts 'Position already taken'
-      #else
-        #used_moves.push(user_move)
-      #end
+      # if used_moves.any?(user_move)
+      # puts 'Position already taken'
+      # else
+      # used_moves.push(user_move)
+      # end
 
       puts '   | x |   '
       puts '--- --- ---'
@@ -84,7 +84,7 @@ while restart
     # if any player gets a winning combination.
 
     # if winnig move then true is assign to won and games ends
-    puts won ? "You won" : "Its a draw"
+    puts won ? 'You won' : 'Its a draw'
 
   end
   puts 'winner is -->'
