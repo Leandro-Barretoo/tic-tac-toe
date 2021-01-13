@@ -52,7 +52,7 @@ while game_start
   #   [0, 4, 8],
   #   [2, 4, 6]
   # ]
-  
+
   puts 'if any player gets a winning combination.'
   puts 'he wins the game otherwise its a tie. break the loop'
 
