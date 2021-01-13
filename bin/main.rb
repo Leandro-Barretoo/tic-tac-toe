@@ -1,94 +1,93 @@
 #!/usr/bin/env ruby
 
-puts 'game started'
-puts '-------------------------------'
-puts 'Please enter player 1 name:'
-user_one = gets.chomp
-puts user_one
-puts '-------------------------------'
-puts 'Please enter player 2 name:'
-user_two = gets.chomp
-puts user_two
-puts '-------------------------------'
-puts '#Lets play'
+class Game
+  def initialize
+    @player_one
+    @player_two
+    @user_one_move
+    @user_two_move
+    @num_check = []
+    @board_arr = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  end
 
-game_start = true
-rounds = 0
-# used_moves = []
-restart = true
+  def introduction
+    puts 'Welcome to tic-tac-toe'
+    puts 'Please enter players names:'
+    puts '--> Player One:'
+    @player_one = gets.chomp
+    puts '--> Player Two:'
+    @player_two = gets.chomp
+  end
 
-while restart
-  while game_start
-    won = false
-    # draw = false
-    puts rounds
-    puts "#{user_one} Make your move(1-9):"
-    user_move = gets.chomp.to_i
+  def instructions
+    puts 'How this game works?'
+    puts '--> Choose one of the 9 positions to place your mark'
+    puts ' 1 | 2 | 3'
+    puts '--- --- ---'
+    puts ' 4 | 5 | 6'
+    puts '--- --- ---'
+    puts ' 7 | 8 | 9'
+  end
 
-    if user_move.between? 1, 9
+  def board_game
+    puts " #{@board_arr[0]} | #{@board_arr[1]} | #{@board_arr[2]}"
+    puts '--- --- ---'
+    puts " #{@board_arr[3]} | #{@board_arr[4]} | #{@board_arr[5]}"
+    puts '--- --- ---'
+    puts " #{@board_arr[6]} | #{@board_arr[7]} | #{@board_arr[8]}"
+  end
 
-      # if used_moves.any?(user_move)
-      # puts 'Position already taken'
-      # else
-      # used_moves.push(user_move)
-      # end
+  def ask_move_one
+    puts "--> #{@player_one}, please make your move(1-9):"
+    @user_one_move = gets.chomp.to_i
+    validate_one
+  end
 
-      puts '   | x |   '
-      puts '--- --- ---'
-      puts '   |   |   '
-      puts '--- --- ---'
-      puts '   |   |   '
+  def ask_move_two
+    puts "--> #{@player_two}, please make your move(1-9):"
+    @user_two_move = gets.chomp.to_i
+    validate_two
+  end
+
+  def validate_one
+    if @user_one_move.between?(1, 9) && @num_check.none?(@user_one_move)
+      board_game
+      @num_check.push(@user_one_move)
     else
-      puts 'invalid input'
-      puts "#{user_one} Make your move(1-9):"
-      user_move = gets.chomp.to_i
+      puts 'You made an invalid move!!'
+      ask_move_one
     end
+  end
 
-    puts "#{user_two} Make your move(1-9):"
-    user_move = gets.chomp.to_i
-
-    if user_move.between? 1, 9
-
-      # if used_moves.any?(user_move)
-      # puts 'Position already taken'
-      # else
-      # used_moves.push(user_move)
-      # end
-
-      puts '   | x |   '
-      puts '--- --- ---'
-      puts '   | o |   '
-      puts '--- --- ---'
-      puts '   |   |   '
+  def validate_two
+    if @user_two_move.between?(1, 9) && @num_check.none?(@user_two_move)
+      board_game
+      @num_check.push(@user_two_move)
     else
-      puts 'invalid input'
-      puts "#{user_one} Make your move(1-9):"
-      user_move = gets.chomp.to_i
+      puts 'You made an invalid move!!'
+      ask_move_two
     end
+  end
 
-    # make move on the board
-    # puts board
-    # initiate next rounds
-
-    # win_combination = [
-    #   [0, 1, 2],
-    #   [3, 4, 5],
-    #   [6, 7, 8],
-    #   [0, 3, 6],
-    #   [1, 4, 7],
-    #   [2, 5, 8],
-    #   [0, 4, 8],
-    #   [2, 4, 6]
-    # ]
-
-    # if any player gets a winning combination.
-
-    # if winnig move then true is assign to won and games ends
-    puts won ? 'You won' : 'Its a draw'
+  def initial
 
   end
-  puts 'winner is -->'
-  puts 'You want to restart: yes or no?'
-  repeat_ans = gets.chomp
-  break unless repeat_ans == 'yes'
+end
+
+start_game = Game.new
+
+game_on = true
+i = 0
+
+while game_on
+  start_game.introduction
+  start_game.instructions
+  while i < 4
+  start_game.ask_move_one
+  start_game.ask_move_two
+  i += 1
+  end
+  puts 'Do you want a rematch: yes or no?'
+  rematch_ans = gets.chomp
+  rematch_ans == 'yes' ? game_on : game_on = false 
 end
