@@ -2,10 +2,6 @@
 
 class Game
   def initialize
-    @player_one
-    @player_two
-    @user_one_move
-    @user_two_move
     @num_check = []
     @board_arr = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
   end
@@ -68,10 +64,6 @@ class Game
       ask_move_two
     end
   end
-
-  def initial
-
-  end
 end
 
 start_game = Game.new
@@ -83,11 +75,11 @@ while game_on
   start_game.introduction
   start_game.instructions
   while i < 4
-  start_game.ask_move_one
-  start_game.ask_move_two
-  i += 1
+    start_game.ask_move_one
+    start_game.ask_move_two
+    i += 1
   end
   puts 'Do you want a rematch: yes or no?'
   rematch_ans = gets.chomp
-  rematch_ans == 'yes' ? game_on : game_on = false 
+  rematch_ans == 'yes' ? game_on : game_on = false
 end
