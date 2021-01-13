@@ -16,6 +16,7 @@ game_start = true
 rounds = 0
 
 while game_start
+  won = false
   puts rounds
   puts 'Make your move(1-9):'
   user_one_move = gets.chomp
@@ -32,14 +33,14 @@ while game_start
   puts '--- --- ---'
   puts '   |   |   '
 
+  puts 'display mark on the board.'
+  puts 'check if the position is already taken or not'
+
   # make move on the board
   # puts board
   # initiate next rounds
 
   rounds += 1
-
-  # if any player gets a winning combination.
-  # he wins the game otherwise its a tie. break the loop
 
   # win_combination = [
   #   [0, 1, 2],
@@ -51,13 +52,10 @@ while game_start
   #   [0, 4, 8],
   #   [2, 4, 6]
   # ]
+  
+  puts 'if any player gets a winning combination.'
+  puts 'he wins the game otherwise its a tie. break the loop'
 
+  won == true ? 'decleare winner' : 'Tie the game'
 
 end
-
-# check if the move was already made
-# if yes throw an error 'place already taken'
-# if not display board with the changes
-# repeat process till we get a winnig move
-# if no winning move throw a 'It's a tie!'
-# if winnig move detected then declare who is the winner
