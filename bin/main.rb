@@ -14,33 +14,57 @@ puts '#Lets play'
 
 game_start = true
 rounds = 0
+used_moves = []
 
 while game_start
   won = false
   puts rounds
-  puts 'Make your move(1-9):'
-  user_one_move = gets.chomp
-  used_moves = []
-  if used_moves.any?(user_one_move)
-    puts 'Position already taken'
+  puts "#{user_one} Make your move(1-9):"
+  user_move = gets.chomp.to_i
+
+  if(user_move.between?(1, 9))
+
+    if used_moves.any?(user_move)
+      puts 'Position already taken'
+    else
+      used_moves.push(user_move)
+    end
+
+    puts '   |   |   '
+    puts '--- --- ---'
+    puts '   |   |   '
+    puts '--- --- ---'
+    puts '   |   |   '
   else
-    used_moves.push(user_one_move)
+    puts "invalid input"
+    break
   end
 
-  puts '   |   |   '
-  puts '--- --- ---'
-  puts '   |   |   '
-  puts '--- --- ---'
-  puts '   |   |   '
+  puts "#{user_two} Make your move(1-9):"
+  user_move = gets.chomp.to_i
 
-  puts 'display mark on the board.'
-  puts 'check if the position is already taken or not'
+  if(user_move.between?(1, 9))
+
+    if used_moves.any?(user_move)
+      puts 'Position already taken'
+    else
+      used_moves.push(user_move)
+    end
+
+    puts '   |   |   '
+    puts '--- --- ---'
+    puts '   |   |   '
+    puts '--- --- ---'
+    puts '   |   |   '
+  else
+    puts "invalid input"
+    break
+  end
+
 
   # make move on the board
   # puts board
   # initiate next rounds
-
-  rounds += 1
 
   # win_combination = [
   #   [0, 1, 2],
@@ -53,8 +77,8 @@ while game_start
   #   [2, 4, 6]
   # ]
 
-  puts 'if any player gets a winning combination.'
-  puts 'he wins the game otherwise its a tie. break the loop'
+  # if any player gets a winning combination.
+  # he wins the game otherwise its a tie. break the loop
 
   won == true ? game_start = false : 'Tie the game'
 
