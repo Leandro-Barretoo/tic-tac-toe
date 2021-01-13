@@ -56,6 +56,6 @@ while game_start
   puts 'if any player gets a winning combination.'
   puts 'he wins the game otherwise its a tie. break the loop'
 
-  won == true ? 'decleare winner' : 'Tie the game'
+  won == true ? game_start = false : 'Tie the game'
 
 end
