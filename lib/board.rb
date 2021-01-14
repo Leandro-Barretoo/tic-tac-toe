@@ -9,7 +9,7 @@ class Board < Play
     puts " #{@board_arr[6]} | #{@board_arr[7]} | #{@board_arr[8]}"
   end
 
-   def placement_x
+  def placement_x
     @board_arr[@user_one_move - 1] = 'X'
   end
 
