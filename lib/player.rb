@@ -10,7 +10,6 @@ class Play
         puts '--> You won the game!! <--'
         puts '------------------------------'
         return true
-      end
     end
     false
   end
@@ -22,7 +21,6 @@ class Play
         puts '--> You won the game!! <--'
         puts '------------------------------'
         return true
-      end
     end
     false
   end
