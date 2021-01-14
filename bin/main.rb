@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require '../lib/player.rb'
-require '../lib/board.rb'
+require_relative '../lib/player.rb'
+require_relative '../lib/board.rb'
 
 class Game < Board
   def initialize
@@ -72,7 +72,7 @@ class Game < Board
   end
 
   def its_tie
-    puts "Ohh!! It's a tie!!"
+    puts "Ohh!! It's a draw!!"
   end
 end
 
