@@ -5,13 +5,11 @@ class Play
 
   def comparison_one(arr)
     (0..7).each do |i|
-      if (@winning_combination[i] - arr).empty?
+      next unless (@winning_combination[i] - arr).empty?
         puts '------------------------------'
         puts '--> You won the game!! <--'
         puts '------------------------------'
         return true
-      else
-        next
       end
     end
     false
@@ -19,13 +17,11 @@ class Play
 
   def comparison_two(arr)
     (0..7).each do |i|
-      if (@winning_combination[i] - arr).empty?
+      next unless (@winning_combination[i] - arr).empty?
         puts '------------------------------'
         puts '--> You won the game!! <--'
         puts '------------------------------'
         return true
-      else
-        next
       end
     end
     false
