@@ -1,6 +1,4 @@
-require '../lib/player.rb'
-
-class Board < Play
+class Board
   def board_game
     puts " #{@board_arr[0]} | #{@board_arr[1]} | #{@board_arr[2]}"
     puts '--- --- ---'
