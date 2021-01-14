@@ -9,11 +9,13 @@ class Board < Play
     puts " #{@board_arr[6]} | #{@board_arr[7]} | #{@board_arr[8]}"
   end
 
-  def placement_x
-    @board_arr[@user_one_move - 1] = 'X'
-  end
-
-  def placement_o
-    @board_arr[@user_two_move - 1] = 'O'
+  def placement(user_move)
+    if user_move == @user_one_move
+      user_symbol = 'X'
+      @board_arr[@user_one_move - 1] = user_symbol
+    elsif user_move == @user_two_move
+      user_symbol = 'O'
+      @board_arr[@user_two_move - 1] = user_symbol
+    end
   end
 end

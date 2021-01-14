@@ -37,48 +37,31 @@ class Game < Board
   def ask_move_one
     puts "--> #{@player_one}, please make your move(1-9):"
     @user_one_move = gets.chomp.to_i
-    validate_one
+    validate(@user_one_move, @one_acc)
   end
 
   def ask_move_two
     puts "--> #{@player_two}, please make your move(1-9):"
     @user_two_move = gets.chomp.to_i
-    validate_two
+    validate(@user_two_move, @two_acc)
   end
 
-  def validate_one
-    compare_one = Play.new
-    if @user_one_move.between?(1, 9) && @num_check.none?(@user_one_move)
-      placement_x
+  def validate(user_move, user_acc)
+    compare = Play.new
+    if user_move.between?(1, 9) && @num_check.none?(user_move)
+      placement(user_move)
       puts '------------------------------'
       show_board
       puts '------------------------------'
-      @num_check.push(@user_one_move)
-      @one_acc.push(@user_one_move)
-      compare_one.comparison(@one_acc)
+      @num_check.push(user_move)
+      user_acc.push(user_move)
+      compare.comparison(user_acc)
     else
       puts '------------------------------'
       puts '--> You made an invalid move!! <--'
       puts '------------------------------'
-      ask_move_one
-    end
-  end
-
-  def validate_two
-    compare_two = Play.new
-    if @user_two_move.between?(1, 9) && @num_check.none?(@user_two_move)
-      placement_o
-      puts '------------------------------'
-      board_game
-      puts '------------------------------'
-      @num_check.push(@user_two_move)
-      @two_acc.push(@user_two_move)
-      compare_two.comparison(@two_acc)
-    else
-      puts '------------------------------'
-      puts '--> You made an invalid move!! <--'
-      puts '------------------------------'
-      ask_move_two
+      ask_move_one if user_move == @user_one_move
+      ask_move_two if user_move == @user_two_move
     end
   end
 
