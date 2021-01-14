@@ -55,7 +55,7 @@ class Game < Board
       puts '------------------------------'
       @num_check.push(@user_one_move)
       @one_acc.push(@user_one_move)
-      compare_one.comparison_one(@one_acc)
+      compare_one.comparison(@one_acc)
     else
       puts '------------------------------'
       puts '--> You made an invalid move!! <--'
@@ -73,7 +73,7 @@ class Game < Board
       puts '------------------------------'
       @num_check.push(@user_two_move)
       @two_acc.push(@user_two_move)
-      compare_two.comparison_two(@two_acc)
+      compare_two.comparison(@two_acc)
     else
       puts '------------------------------'
       puts '--> You made an invalid move!! <--'
