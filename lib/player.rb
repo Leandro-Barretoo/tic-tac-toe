@@ -14,5 +14,4 @@ class Play
     end
     false
   end
-
 end
