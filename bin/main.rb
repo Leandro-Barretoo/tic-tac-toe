@@ -85,7 +85,7 @@ class Game < Board
   def end_game
     puts 'Do you want a rematch: yes or no?'
     rematch_ans = gets.chomp
-    return rematch_ans
+    rematch_ans
   end
 
   def its_tie
