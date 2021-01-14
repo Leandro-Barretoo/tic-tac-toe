@@ -29,7 +29,7 @@ class Game < Board
     puts '--- --- ---'
     puts ' 7 | 8 | 9'
   end
-  
+
   def show_board
     board_game
   end
@@ -55,7 +55,7 @@ class Game < Board
       puts '------------------------------'
       @num_check.push(@user_one_move)
       @one_acc.push(@user_one_move)
-      compare_one.comparison_one(@one_acc) 
+      compare_one.comparison_one(@one_acc)
     else
       puts '------------------------------'
       puts '--> You made an invalid move!! <--'
@@ -68,7 +68,7 @@ class Game < Board
     compare_two = Play.new
     if @user_two_move.between?(1, 9) && @num_check.none?(@user_two_move)
       placement_o
-      puts '------------------------------'      
+      puts '------------------------------'
       board_game
       puts '------------------------------'
       @num_check.push(@user_two_move)
@@ -83,14 +83,13 @@ class Game < Board
   end
 
   def end_game
-  puts "Do you want a rematch: yes or no?"
-  rematch_ans = gets.chomp 
+    puts 'Do you want a rematch: yes or no?'
+    rematch_ans = gets.chomp
   end
 
   def its_tie
     puts "Ohh!! It's a tie!!"
   end
-
 end
 
 loop do
@@ -105,22 +104,17 @@ loop do
       break
     end
     moves += 1
-    if moves == 9
-      break
-    end
+    break if moves == 9
+
     if start_game.ask_move_two == true
       win = true
       break
     end
     moves += 1
-    if moves == 9
-      break
-    end
+    break if moves == 9
   end
   start_game.its_tie if moves == 9
-  if start_game.end_game == 'no'
-    break
-  end
+  break if start_game.end_game == 'no'
 end
 
 puts '*************************************'
