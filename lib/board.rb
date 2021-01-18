@@ -1,4 +1,9 @@
 class Board
+  attr_accessor :board_arr
+  def initialize
+    @board_arr = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+  end
+
   def board_game
     puts " #{@board_arr[0]} | #{@board_arr[1]} | #{@board_arr[2]}"
     puts '--- --- ---'

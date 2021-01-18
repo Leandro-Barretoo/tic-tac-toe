@@ -1,10 +1,9 @@
 class Game < Board
-    attr_accessor :board_arr
     def initialize
+      super
       @one_acc = []
       @two_acc = []
       @num_check = []
-      @board_arr = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
     end
   
     def introduction

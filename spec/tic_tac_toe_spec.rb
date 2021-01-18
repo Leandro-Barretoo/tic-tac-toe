@@ -5,7 +5,7 @@ require '../lib/game.rb'
 describe Board do
   describe "#placement" do
     it "returns the user symbol" do
-      board = Game.new
+      board = Board.new
       expect(board.placement(2, 1)).to eql("X")
     end
   end
