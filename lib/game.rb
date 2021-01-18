@@ -1,4 +1,5 @@
 class Game < Board
+    attr_accessor :one_acc, :two_acc
     def initialize
       super
       @one_acc = []
@@ -33,18 +34,25 @@ class Game < Board
       puts "--> #{@player_one}, please make your move(1-9):"
       @user_one_move = gets.chomp.to_i
       user_move = @user_one_move
-      validate(user_move, @one_acc, 1)
+      if validate(user_move, @one_acc, 1) == false
+        ask_move_one
+      end
+      compare = Play.new
+      compare.comparison(@one_acc)
     end
   
     def ask_move_two
       puts "--> #{@player_two}, please make your move(1-9):"
       @user_two_move = gets.chomp.to_i
       user_move = @user_two_move
-      validate(user_move, @two_acc, 2)
+      if validate(user_move, @two_acc, 2) == false
+        ask_move_two
+      end
+      compare = Play.new
+      compare.comparison(@two_acc)
     end
   
     def validate(user_move, user_acc, player)
-      compare = Play.new
       if user_move.between?(1, 9) && @num_check.none?(user_move)
         placement(user_move, player)
         puts '------------------------------'
@@ -52,13 +60,12 @@ class Game < Board
         puts '------------------------------'
         @num_check.push(user_move)
         user_acc.push(user_move)
-        compare.comparison(user_acc)
+        return true
       else
         puts '------------------------------'
         puts '--> You made an invalid move!! <--'
         puts '------------------------------'
-        ask_move_one if user_move == @user_one_move
-        ask_move_two if user_move == @user_two_move
+        return false
       end
     end
   
