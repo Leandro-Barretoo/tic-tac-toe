@@ -49,7 +49,7 @@ class Game < Board
   end
 
   def validate(user_move, user_acc, player)
-    if user_move.between?(1, 9) && @num_check.none?(user_move)
+    if user_move.is_a?(Integer) && user_move.between?(1, 9) && @num_check.none?(user_move)
       placement(user_move, player)
       puts '------------------------------'
       show_board
